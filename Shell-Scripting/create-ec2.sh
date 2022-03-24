@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
 fi
 
 COMPONENT=$1
-ZONE_ID="Z08005452NVNO9YZAOL1R"
+ZONE_ID="Z10463313EB4T9QXP0E6T"
 
 create_ec2() {
   PRIVATE_IP=$(aws ec2 run-instances \
@@ -22,7 +22,7 @@ create_ec2() {
 }
 
 AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=Centos-7-DevOps-Practice" | jq '.Images[].ImageId' | sed -e 's/"//g')
-SGID=$(aws ec2 describe-security-groups --filters Name=group-name,Values=allow-all-from-public | jq  '.SecurityGroups[].GroupId' | sed -e 's/"//g')
+SGID=$(aws ec2 describe-security-groups --filters Name=group-name,Values=DevOps-LAB | jq  '.SecurityGroups[].GroupId' | sed -e 's/"//g')
 
 if [ "$1" == "all" ]; then
   for component in catalogue cart user shipping payment frontend mongodb mysql rabbitmq redis ; do
