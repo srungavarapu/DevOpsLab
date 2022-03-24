@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
 fi
 
 COMPONENT=$1
-ZONE_ID="Z10463313EB4T9QXP0E6T"
+#ZONE_ID="Z10463313EB4T9QXP0E6T"
 
 create_ec2() {
   PRIVATE_IP=$(aws ec2 run-instances \
@@ -18,7 +18,7 @@ create_ec2() {
       | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
   sed -e "s/IPADDRESS/${PRIVATE_IP}/" -e "s/COMPONENT/${COMPONENT}/" route53.json >/tmp/record.json
-  aws route53 change-resource-record-sets --hosted-zone-id ${ZONE_ID} --change-batch file:///tmp/record.json | jq
+  #aws route53 change-resource-record-sets --hosted-zone-id ${ZONE_ID} --change-batch file:///tmp/record.json | jq
 }
 
 AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=Centos-7-DevOps-Practice" | jq '.Images[].ImageId' | sed -e 's/"//g')
