@@ -1,0 +1,24 @@
+---
+- hosts: all
+  tasks:
+    - name: ensure nginx is at the latest version
+      yum: name=nginx state=latest
+       - name: Download and extract Frontend
+      ansible.builtin.unarchive:
+        src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
+        dest: /tmp
+        remote_src:
+    - name: Clenup Old HTML content
+      ansible.buitin.file:
+        path: /usr/share/nginx/html
+        state: absent
+    - name: copy the frontned content to nginx path
+      ansible.builtin.copy:
+        src: /tmp/frontend-main/static/
+        dest: /usr/share/nginx/html
+        remote_src: yes
+    - name: start nginx
+        service:
+          name: nginx
+          state: started
+
