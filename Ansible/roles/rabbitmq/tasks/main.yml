@@ -1,0 +1,14 @@
+- name: setup YUM repos
+  ansible.bulltin.shell:
+
+- name: Install Elang & RabbitMQ
+  ansible.builtin.yum:
+    name:
+      -
+      -
+    state: started
+
+- name: staert RabbitMQ Service
+
+
+- name: Add RabbitMQ Application layer

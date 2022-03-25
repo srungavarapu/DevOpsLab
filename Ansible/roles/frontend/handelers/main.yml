@@ -1,0 +1,8 @@
+## If any task changes and if we want to run another task to then hendelers come into picture
+## by default handelers run at the ending of the play. This can change to run immediate also
+
+- name: Restart Nginx
+  ansible.buitlin.systemd:
+    name: nginx
+    status: restarted
+
