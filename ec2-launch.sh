@@ -36,9 +36,3 @@ echo
 echo Instance $INSTANCE_NAME has been created and assigned static IP Address $IP_ADDRESS
 echo
 
-# Since the server signature changes each time, remove the server's entry from ~/.ssh/known_hosts
-# Maybe you don't need to do this if you're using a Reserved Instance?
-ssh-keygen -R $IP_ADDRESS
-
-# SSH into my BRAND NEW EC2 INSTANCE! WooHoo!!!
-ssh -i $EC2_HOME/$EC2_INSTANCE_KEY.pem centos@$IP_ADDRESS
