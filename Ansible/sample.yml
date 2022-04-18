@@ -1,0 +1,7 @@
+- name: Smaple play
+  hosts: all
+  tasks:
+    - name: print Hello World
+      ansible.builtin.debug:
+        msg: Hello world
+- name: Mano
