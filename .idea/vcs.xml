@@ -5,6 +5,5 @@
     <mapping directory="$PROJECT_DIR$/Ansible" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Shell-Scripting" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Teraform" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/spring-petclinic-main" vcs="Git" />
   </component>
 </project>
